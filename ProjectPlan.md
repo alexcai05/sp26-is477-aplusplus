@@ -33,13 +33,13 @@ Both members of the team will prepare Github deliverables together for all miles
 
 ## Datasets 
 ### Dataset 1: College Scorecard (U.S. Department of Education)
-The College Scorecard is a dataset published by the U.S. Department of Education that contains detailed information about higher education institutions in the United States. 6,430 colleges are represented in the 2024 dataset. The College Scorecard provides the raw data behind some of the tools they offer to students and parents in helping them make a more informed decison on which college is best for them. This dataset is important to this project as it contains the median earnings variable will be analyzed to see how it correlates with other factors described in the research questions. It also has other measures of graduate outcomes like graduation rate and student debt.
+The College Scorecard is a dataset published by the U.S. Department of Education that contains detailed information about higher education institutions in the United States. 6,430 colleges are represented in the 2024 dataset. The College Scorecard provides the raw data behind some of the tools they offer to students and parents in helping them make a more informed decision on which college is best for them. This dataset is important to this project as it contains the median earnings variable will be analyzed to see how it correlates with other factors described in the research questions. It also has other measures of graduate outcomes like graduation rate and student debt.
 
 Link to dataset source: https://collegescorecard.ed.gov/data/ 
 
 Variables from this dataset that are relevant to the research questions include:
 + UNITID: unique identification number of the institution
-+ INSTNM: insitution name
++ INSTNM: institution name
 + TUITIONFEE_IN: in-state tuition and fees
 + TUITIONFEE_OUT: out-of-state tuition and fees
 + MD_EARN_WNE_P10: median earnings of students working and not enrolled 10 years after entry
@@ -64,7 +64,7 @@ Variables from this dataset that are relevant to the research questions include:
 Access: CSV  
 Usage rights: Public domain under 17 U.S. Code § 105 (U.S. government work)
 
-Both of the College Scorecard and IPEDS share the UNITID identifier, which will be used to perform data integration between the two datasets for analysis.
+Both the College Scorecard and IPEDS share the UNITID identifier, which will be used to perform data integration between the two datasets for analysis.
 
 ## Timeline
 words words words
