@@ -67,10 +67,15 @@ Usage rights: Public domain under 17 U.S. Code § 105 (U.S. government work)
 Both the College Scorecard and IPEDS share the UNITID identifier, which will be used to perform data integration between the two datasets for analysis.
 
 ## Timeline
-words words words
+The approximate timeline for the rest of the semester is as follows.
++ [__March 28th - 29th__]: **Data Acquisition**, completion of acquiring the data with ethical and storage constraints in mind. Will be completed by Alex.
++ [__April 4th - 5th__]: **Data Analysis & Cleaning**, using Python/Pandas and SQL to integrate the datasets, we will conduct an initial data analysis, documenting the quality of the data and cleaning any missing data to make it ready for investigation. Will be completed by Vicky.
++ [__April 11th - 12th__]: **Data Investigation**, working with the data to solve our question while utilizing automated workflows to do so. Will be completed by Vicky.
++ [__April 18th - 19th__]: **Documentation**, preparing documentation for how we completed the project, ensuring reproducibility and adherence to FAIR principles. Will be completed by Alex.
++ [__April 25th - 26th__]: **Final Submission**, prepare to submit prior to deadline. Will be completed by both Alex & Vicky.
 
 ## Constraints
-words words words
+Some constraints that might be present in our approach is the potential incompleteness of data. Not every person who graduates from these universities will provide their post-graduate outcome to their university. This might result in survivorship bias being present in our data, as only those who wish to report where they ended up will be present. If the colleges automatically record these outcomes, then that might also be an ethical violation of their data if they did not receive consent.
 
 ## Gaps
-words words words
+Some gaps in our project plan as of right now include how recent the data is. Although the data is collected from 2024, as we continue moving forward, that data will become more and more outdated, especially with how revolutionary AI is turning out to be. What used to be a high ROI, may no longer result in something worthwhile if it is has since been invalidated or replaced by AI.
