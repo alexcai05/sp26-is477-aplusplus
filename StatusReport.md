@@ -9,8 +9,8 @@ After we acquired the data, we conducted a data quality analysis and documented 
 
 ## Updated Timeline
 The approximate timeline for the project is as follows:
-+ [__April 4th - 5th__]: **Data Acquisition**, completion of acquiring the data with ethical and storage constraints in mind. Will be completed by Alex. ✔️
-+ [__April 11th - 12th__]: **Data Analysis & Cleaning**, using Python/Pandas and SQL to integrate the datasets, we will conduct an initial data analysis, documenting the quality of the data and cleaning any missing data to make it ready for investigation. Will be completed by Vicky. ✔️
++ [__April 4th - 5th__]: **Data Acquisition**, completion of acquiring the data with ethical and storage constraints in mind. Will be completed by Vicky. ✔️
++ [__April 11th - 12th__]: **Data Analysis & Cleaning**, using Python/Pandas and SQL to integrate the datasets, we will conduct an initial data analysis, documenting the quality of the data and cleaning any missing data to make it ready for investigation. Will be completed by Alex. ✔️
 + [__April 18th - 26th__]: **Data Investigation**, working with the data to solve our question while utilizing automated workflows to do so. Will be completed by Vicky.
 + [__April 28th - 30th__]: **Documentation**, preparing documentation for how we completed the project, ensuring reproducibility and adherence to FAIR principles. Will be completed by Alex.
 + [__May 1st - 2nd__]: **Final Submission**, prepare to submit prior to deadline. Will be completed by both Alex & Vicky.
