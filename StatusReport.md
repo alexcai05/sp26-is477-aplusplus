@@ -23,8 +23,6 @@ One challenge that we've ran into so far is related to storage. When we initiall
 
 ... add any other challenges
 ## Team Members Contribution Summary
-Vicky Wu: I acquired the data for this project. First, I familiarized myself with the characterstics and naming conventions of the College Scorecard and IPEDS datasets using the documentation available on the respective source websites. Then, I wrote a Python script on Visual Studio Code for data acquisition, making sure I included the calculation of checksums for data integrity and labeling the steps with comments. The script was able to successfully create the raw data files `ipeds_hd2024.csv` and `scorecard_raw.csv`. I pushed these changes to Github, and the files are available under `data/raw`.
-
-(im going to fix the paragraph some more later)
+Vicky Wu: I acquired the data for this project. First, I familiarized myself with the characterstics and naming conventions of the College Scorecard and IPEDS datasets using the documentation available on the respective source websites. Then, I wrote a Python script on Visual Studio Code for data acquisition, making sure I included the calculation of checksums for data integrity and labeling the steps with comments. I resolved the issue we encountered with storage by modifying the code to extract only certain columns. The `acquire_data.py` script can be found in the folder `scripts`. The script was able to successfully create the raw data files `ipeds_hd2024.csv` and `scorecard_raw.csv`. I pushed these changes to Github, and the files are available under `data/raw`.
 
 Alex Cai:
