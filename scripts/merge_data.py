@@ -1,5 +1,7 @@
 import pandas as pd
 import os
+import json
+from datetime import datetime
 
 CLEANED_DIR = "data/cleaned"
 OUTPUT_DIR  = "data/merged"
@@ -26,5 +28,19 @@ print(f"  Matched records:          {len(merged)}")
 print(f"  Scorecard rows unmatched: {sc_only}  (excluded from merge)")
 print(f"  IPEDS rows unmatched:     {ipeds_only}  (excluded from merge)")
 
+# documenting merge
+merge_stats = {
+    "timestamp": datetime.now().isoformat(),
+    "merge_statistics": {
+        "matched_records": len(merged),
+        "scorecard_only": clean_sc[~clean_sc["UNITID"].isin(clean_ipeds["UNITID"])]["school.name"].tolist(),
+        "ipeds_only": clean_ipeds[~clean_ipeds["UNITID"].isin(clean_sc["UNITID"])]["INSTNM"].tolist(),
+        "merge_rate_pct": round(len(merged) / (len(set(clean_sc["UNITID"]) | set(clean_ipeds["UNITID"]))) * 100, 1)
+    }
+}
+
+with open(os.path.join(OUTPUT_DIR, "merge_stats.json"), "w") as f:
+    json.dump(merge_stats, f, indent=2)
+              
 merged.to_csv(os.path.join(OUTPUT_DIR, "merged_cleaned.csv"), index=False)
 print(f"  merged_cleaned shape: {merged.shape}")
