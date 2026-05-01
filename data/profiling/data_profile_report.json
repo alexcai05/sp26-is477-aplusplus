@@ -1,0 +1,186 @@
+{
+  "generation_timestamp": "2026-04-30T21:21:05.403173",
+  "scorecard_dataset": {
+    "shape": {
+      "rows": 6322,
+      "columns": 8
+    },
+    "missing_values": {
+      "id": {
+        "missing_count": 0,
+        "missing_pct": 0.0
+      },
+      "school.name": {
+        "missing_count": 0,
+        "missing_pct": 0.0
+      },
+      "latest.cost.tuition.in_state": {
+        "missing_count": 2660,
+        "missing_pct": 42.1
+      },
+      "latest.cost.tuition.out_of_state": {
+        "missing_count": 2660,
+        "missing_pct": 42.1
+      },
+      "latest.earnings.10_yrs_after_entry.median": {
+        "missing_count": 1149,
+        "missing_pct": 18.2
+      },
+      "latest.aid.median_debt.completers.overall": {
+        "missing_count": 1507,
+        "missing_pct": 23.8
+      },
+      "latest.completion.rate_suppressed.four_year": {
+        "missing_count": 4156,
+        "missing_pct": 65.7
+      },
+      "latest.student.size": {
+        "missing_count": 735,
+        "missing_pct": 11.6
+      }
+    },
+    "descriptive_stats": {
+      "id": {
+        "count": 6322.0,
+        "mean": 2217185.2485,
+        "std": 7742673.2903,
+        "min": 100654.0,
+        "25%": 174237.5,
+        "50%": 229022.5,
+        "75%": 458910.5,
+        "max": 49664501.0
+      },
+      "latest.cost.tuition.in_state": {
+        "count": 3662.0,
+        "mean": 17753.9615,
+        "std": 16350.6375,
+        "min": 0.0,
+        "25%": 5792.5,
+        "50%": 11943.5,
+        "75%": 23760.0,
+        "max": 72097.0
+      },
+      "latest.cost.tuition.out_of_state": {
+        "count": 3662.0,
+        "mean": 21231.1005,
+        "std": 15353.4644,
+        "min": 0.0,
+        "25%": 9935.0,
+        "50%": 16364.0,
+        "75%": 28535.0,
+        "max": 72097.0
+      },
+      "latest.earnings.10_yrs_after_entry.median": {
+        "count": 5173.0,
+        "mean": 43700.301,
+        "std": 17142.597,
+        "min": 8579.0,
+        "25%": 31914.0,
+        "50%": 40747.0,
+        "75%": 52341.0,
+        "max": 143372.0
+      },
+      "latest.aid.median_debt.completers.overall": {
+        "count": 4815.0,
+        "mean": 15806.1273,
+        "std": 7632.2081,
+        "min": 2783.0,
+        "25%": 9500.0,
+        "50%": 13432.0,
+        "75%": 22500.0,
+        "max": 43021.0
+      },
+      "latest.completion.rate_suppressed.four_year": {
+        "count": 2166.0,
+        "mean": 0.5211,
+        "std": 0.1965,
+        "min": 0.0,
+        "25%": 0.3762,
+        "50%": 0.5219,
+        "75%": 0.6633,
+        "max": 1.0
+      },
+      "latest.student.size": {
+        "count": 5587.0,
+        "mean": 2592.513,
+        "std": 6472.2126,
+        "min": 0.0,
+        "25%": 120.0,
+        "50%": 540.0,
+        "75%": 2163.0,
+        "max": 163164.0
+      }
+    },
+    "duplicates": {
+      "duplicate_rows": 0,
+      "duplicate_id": 0,
+      "duplicate_school_name": 101
+    },
+    "implausible_values": {
+      "student_size_zero": 17,
+      "student_size_negative": 0,
+      "tuition_in_state_negative": 0,
+      "tuition_out_of_state_negative": 0,
+      "completion_rate_above_1": 0,
+      "completion_rate_negative": 0
+    }
+  },
+  "ipeds_dataset": {
+    "shape": {
+      "rows": 6072,
+      "columns": 4
+    },
+    "missing_values": {
+      "UNITID": {
+        "missing_count": 0,
+        "missing_pct": 0.0
+      },
+      "INSTNM": {
+        "missing_count": 0,
+        "missing_pct": 0.0
+      },
+      "CONTROL": {
+        "missing_count": 0,
+        "missing_pct": 0.0
+      },
+      "LOCALE": {
+        "missing_count": 0,
+        "missing_pct": 0.0
+      }
+    },
+    "duplicates": {
+      "duplicate_rows": 0,
+      "duplicate_unitid": 0
+    },
+    "sentinel_values": {
+      "control_negative3": 22,
+      "locale_negative3": 3
+    },
+    "control_value_counts": {
+      "-3": 22,
+      "1": 1980,
+      "2": 1813,
+      "3": 2257
+    },
+    "locale_value_counts": {
+      "-3": 3,
+      "11": 1458,
+      "12": 734,
+      "13": 793,
+      "21": 1477,
+      "22": 165,
+      "23": 98,
+      "31": 109,
+      "32": 401,
+      "33": 288,
+      "41": 301,
+      "42": 140,
+      "43": 105
+    }
+  },
+  "join_key_alignment": {
+    "ids_in_both": 5851,
+    "ids_in_scorecard_only": 471,
+    "ids_in_ipeds_only": 221
+  }
+}
