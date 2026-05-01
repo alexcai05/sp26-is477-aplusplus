@@ -30,11 +30,6 @@ ax.scatter(q1["latest.cost.tuition.in_state"],
            q1["latest.earnings.10_yrs_after_entry.median"],
            alpha=ALPHA, s=18, color=COLOR)
 
-sns.regplot(data=q1,
-            x="latest.cost.tuition.in_state",
-            y="latest.earnings.10_yrs_after_entry.median",
-            scatter=False, color="red", ci=None, ax=ax)
-
 ax.set_xlabel("In-State Tuition ($)")
 ax.set_ylabel("Median Earnings 10 Years After Entry ($)")
 ax.set_title("Tuition vs. Post-Graduation Earnings")
@@ -68,10 +63,6 @@ fig, ax = plt.subplots(figsize=(8, 5))
 ax.scatter(q3["latest.student.size"],
            q3["latest.earnings.10_yrs_after_entry.median"],
            alpha=ALPHA, s=18, color=COLOR)
-sns.regplot(data=q3,
-            x="latest.student.size",
-            y="latest.earnings.10_yrs_after_entry.median",
-            scatter=False, color="red", ci=None, ax=ax)
 
 ax.set_xlabel("Student Enrollment Size")
 ax.set_ylabel("Median Earnings 10 Years After Entry ($)")
@@ -88,10 +79,6 @@ fig, ax = plt.subplots(figsize=(8, 5))
 ax.scatter(q4["latest.cost.tuition.in_state"],
            q4["latest.aid.median_debt.completers.overall"],
            alpha=ALPHA, s=18, color=COLOR)
-sns.regplot(data=q4,
-            x="latest.cost.tuition.in_state",
-            y="latest.aid.median_debt.completers.overall",
-            scatter=False, color="red", ci=None, ax=ax)
 
 ax.set_xlabel("In-State Tuition ($)")
 ax.set_ylabel("Median Student Debt ($)")
@@ -108,10 +95,6 @@ fig, ax = plt.subplots(figsize=(8, 5))
 ax.scatter(q5["latest.cost.tuition.in_state"],
            q5["latest.completion.rate_suppressed.four_year"],
            alpha=ALPHA, s=18, color=COLOR)
-sns.regplot(data=q5,
-            x="latest.cost.tuition.in_state",
-            y="latest.completion.rate_suppressed.four_year",
-            scatter=False, color="red", ci=None, ax=ax)
 
 ax.set_xlabel("In-State Tuition ($)")
 ax.set_ylabel("Four-Year Completion Rate")
