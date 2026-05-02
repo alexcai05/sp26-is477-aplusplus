@@ -43,21 +43,93 @@ ProjectPlan.md               # Project plan
 StatusReport.md              # Status report
 README.md                    # project report
 ```
-Raw files are preserved in data/raw/ and are never edited manually. All profiling, cleaning, merging, and analysis steps are performed by scripts in scripts/, and their outputs are written to the appropriate subdirectory under data/ or results/. This separation between raw and processed data makes it easy to track provenance and rerun the workflow from scratch.
+Raw files are preserved in `data/raw/` and are never edited manually. All profiling, cleaning, merging, and analysis steps are performed by scripts in `scripts/`, and their outputs are written to the appropriate subdirectory under `data/` or `results/`. This separation between raw and processed data makes it easy to track provenance and rerun the workflow from scratch.
 ## Data Profile
 [max 2000 words] 
 For each dataset used, describe its structure, content, and characteristics. Specify the location of the dataset files in your project repository. Discuss any ethical or legal constraints associated with the data and explain how the datasets relate to your questions
-### College Scorecard
-### IPEDS
+
+### Acquisition
+ 
+Both datasets are publicly accessible online and can be reproduced by running `scripts/acquire_data.py`. A College Scorecard API key is required and can be obtained at https://api.data.gov/signup/.
+ 
+```
+python scripts/acquire_data.py --api-key YOUR_API_KEY
+```
+ 
+The script fetches College Scorecard data via the API with pagination and downloads the IPEDS HD2024 ZIP archive, extracting the relevant CSV. SHA-256 checksums are generated for both raw files and printed to the terminal for verification. Expected checksums are hardcoded in `acquire_data.py` and can be used to confirm file integrity.
+ 
+| Dataset | File | SHA-256 |
+|---|---|---|
+| College Scorecard | `data/raw/scorecard_raw.csv` | `25f4de04450b69c5f99466df424d4661379e1a58ef372a60ffa0707a82b2fd5c` |
+| IPEDS HD2024 | `data/raw/ipeds_hd2024.csv` | `dc01e1522d85a10d2dabcbd53197a19804d44b330377b6a1189491f4c53f7df6` |
+
+### Dataset 1: College Scorecard
+ 
+*alex fills in — source, coverage, format, variables, ethical/legal constraints*
+ 
+### Dataset 2: IPEDS HD2024
+ 
+*alex fills in — source, coverage, format, variables, ethical/legal constraints*
+ 
 ## Data Quality
 [500-1000 words] 
 Summary of the quality assessment.
 ## Data Cleaning
 [max 1000 words] 
 Summarize the data cleaning operations you performed and explain how each operation addressed specific data quality issues in your datasets.
+
+ 
+Data was profiled using `scripts/profile_data.py` before any cleaning was performed. The profiling report saved to `data/profiling/data_profile_report.json` identified the following issues, which were addressed in `scripts/clean_data.py`.
+ 
+### College Scorecard
+ 
+Institutions with a student enrollment of 0 were removed as these values are implausible — no active institution should have zero enrolled students. 17 records were affected. Rows were only dropped if they were missing values across all key analysis columns simultaneously, rather than dropping any row with a single missing value. This preserved as much data as possible given that some columns such as completion rate are frequently suppressed for privacy reasons.
+ 
+### IPEDS HD2024
+ 
+The `CONTROL` and `LOCALE` columns use `-3` as a sentinel value meaning "not applicable." These were recoded to `NaN` to prevent them from being treated as valid numeric values during analysis. Human-readable labels were added for both columns — `CONTROL_LABEL` maps the numeric codes to Public, Private nonprofit, or Private for-profit, and `LOCALE_LABEL` maps locale codes to descriptions such as City: Large or Rural: Remote. A simplified `locale_broad` column was derived from `LOCALE_LABEL` to group institutions into four broad categories: City, Suburb, Town, and Rural.
+ 
+### Integration
+ 
+The two datasets share the IPEDS Unit ID (`UNITID`) as a common identifier. College Scorecard uses this field as `id`, which is renamed to `UNITID` during cleaning. The datasets are joined using an inner join in `scripts/merge_data.py`, retaining only institutions present in both sources.
+ 
+```
+SCORECARD                        IPEDS
+---------                        -----
+UNITID (PK) ────────────────── UNITID (PK)
+school_name                      CONTROL
+tuition                          LOCALE
+earnings
+debt
+completion_rate
+student_size
+```
+ 
+**Merge Statistics**:
+- Records in College Scorecard (cleaned): 4,839
+- Records in IPEDS HD2024 (cleaned): 6,072
+- Successfully matched: 4,839 (85.5% merge rate)
+- Records in Scorecard only: 0
+- Records in IPEDS only: 821
+The 821 unmatched IPEDS institutions had no corresponding Scorecard entry, likely because they are not covered by the Scorecard program (e.g., non-Title IV schools). Full match statistics are saved to `data/merged/merge_stats.json`.
+
+
 ## Findings
 [~500 words] 
 Description of any findings including numeric results and/or visualizations.
+Visualizations were generated using `scripts/analyze_data.py` and saved to `results/`. The following plots address each research question:
+ 
+| Research Question | Visualization |
+|---|---|
+| Do universities with higher tuition result in graduates with higher post-graduation earnings? | `q1_tuition_vs_earnings.png` |
+| Do graduates from urban universities earn more than those from rural universities? | `q2_locale_vs_earnings.png` |
+| Do larger universities produce higher-earning graduates? | `q3_size_vs_earnings.png` |
+| Do students at universities with higher tuition graduate with more student debt? | `q4_tuition_vs_debt.png` |
+| Do universities with higher tuition have higher graduation rates? | `q5_tuition_vs_graduation.png` |
+
+Correlations across all variables is saved as `correlation_heatmap.png`.
+
+*alex fill in the actual analysis*
 ## Future Work
 [~500-1000 words] 
 Brief discussion of any lessons learned and potential future work.
@@ -66,5 +138,108 @@ Brief discussion of any lessons learned and potential future work.
 Discuss the main challenges you encountered while working on the project.
 ## Reproducing
 Sequence of steps required for someone else to reproduce your results.
+### System Requirements
+- macOS, Linux, or Windows
+- Python 3.8 or higher
+- Internet access for initial data download
+### Step 1: Clone the Repository
+ 
+```
+git clone https://github.com/alexcai05/sp26-is477-aplusplus.git
+cd sp26-is477-aplusplus
+```
+ 
+### Step 2: Set Up the Python Environment
+ 
+**Option A: Using pip**
+```
+pip install -r requirements.txt
+```
+ 
+**Option B: Using conda**
+```
+conda create -n is477-project python=3.10
+conda activate is477-project
+pip install -r requirements.txt
+```
+ 
+### Step 3: Obtain a College Scorecard API Key
+ 
+Get a free API key at https://api.data.gov/signup/
+ 
+### Step 4: Run the Pipeline
+ 
+**Option A: Snakemake (recommended)**
+```
+snakemake run_all --cores 1 --config api_key=YOUR_API_KEY
+```
+ 
+**Option B: Run all at once**
+```
+python scripts/run_all.py
+```
+ 
+**Option C: Run each script individually**
+```
+python scripts/acquire_data.py --api-key YOUR_API_KEY
+python scripts/profile_data.py
+python scripts/clean_data.py
+python scripts/merge_data.py
+python scripts/analyze_data.py
+```
+ 
+### Step 5: Verify Outputs
+ 
+After running the pipeline, confirm the following files exist:
+ 
+```
+data/profiling/data_profile_report.json
+data/cleaned/scorecard_cleaned.csv
+data/cleaned/ipeds_cleaned.csv
+data/merged/merged_cleaned.csv
+data/merged/merge_stats.json
+results/question1_tuition_vs_earnings.png
+results/question2_locale_vs_earnings.png
+results/question3_size_vs_earnings.png
+results/question4_tuition_vs_debt.png
+results/question5_tuition_vs_graduation.png
+results/correlation_heatmap.png
+```
+ 
+ 
+## Workflow
+ 
+All processing and analysis steps are implemented as Python scripts in `scripts/`. Run the following commands in order from the repository root.
+ 
+1. **Acquire raw data**
+   ```
+   python scripts/acquire_data.py --api-key YOUR_API_KEY
+   ```
+   Input: College Scorecard API, IPEDS HD2024 ZIP archive → Output: `data/raw/scorecard_raw.csv`, `data/raw/ipeds_hd2024.csv`
+2. **Profile raw datasets**
+   ```
+   python scripts/profile_data.py
+   ```
+   Input: `data/raw/scorecard_raw.csv`, `data/raw/ipeds_hd2024.csv` → Output: `data/profiling/data_profile_report.json`
+3. **Clean raw datasets**
+   ```
+   python scripts/clean_data.py
+   ```
+   Input: `data/raw/scorecard_raw.csv`, `data/raw/ipeds_hd2024.csv` → Output: `data/cleaned/scorecard_cleaned.csv`, `data/cleaned/ipeds_cleaned.csv`
+4. **Merge cleaned datasets**
+   ```
+   python scripts/merge_data.py
+   ```
+   Input: `data/cleaned/scorecard_cleaned.csv`, `data/cleaned/ipeds_cleaned.csv` → Output: `data/merged/merged_cleaned.csv`, `data/merged/merge_stats.json`
+5. **Generate visualizations**
+   ```
+   python scripts/analyze_data.py
+   ```
+   Input: `data/merged/merged_cleaned.csv` → Output: `results/question1_tuition_vs_earnings.png`, `results/question2_locale_vs_earnings.png`, `results/question3_size_vs_earnings.png`, `results/question4_tuition_vs_debt.png`, `results/question5_tuition_vs_graduation.png`, `results/correlation_heatmap.png`
+For convenience, the full pipeline can also be run with a single command:
+ 
+```
+snakemake run_all --cores 1 --config api_key=YOUR_API_KEY
+```
 ## References
 Formatted citations for any papers, datasets, or software used in your project.
