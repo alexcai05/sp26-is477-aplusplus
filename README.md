@@ -1,31 +1,33 @@
 # College Characteristics and Graduate Earnings
 ## Contributors
 Bulleted list of contributors (with optional ORCIDs).
+
 ## Summary
 [500-600 words]
 Description of your project, motivation, research question(s), and any findings.
+
 ## Storage and Organization
 To support reproducibility and traceability, we adopt the following directory structure:
 ```
 data/
   raw/
-    scorecard_raw.csv        # raw College Scorecard data from API
-    ipeds_hd2024.csv         # raw IPEDS HD2024 institutional characteristics
+    scorecard_raw.csv                    # raw College Scorecard data from API
+    ipeds_hd2024.csv                     # raw IPEDS HD2024 institutional characteristics
   profiling/
-    data_profile_report.json      # data quality profile of raw datasets
+    data_profile_report.json             # data quality profile of raw datasets
   cleaned/
-    scorecard_cleaned.csv    # cleaned College Scorecard data
-    ipeds_cleaned.csv        # cleaned IPEDS data
+    scorecard_cleaned.csv                # cleaned College Scorecard data
+    ipeds_cleaned.csv                    # cleaned IPEDS data
   merged/
-    merged_cleaned.csv       # inner join of cleaned datasets on UNITID
-    merge_stats.json         # merge match statistics
+    merged_cleaned.csv                   # inner join of cleaned datasets on UNITID
+    merge_stats.json                     # merge match statistics
 scripts/
-  acquire_data.py            # fetches raw data and generates SHA-256 checksums
-  profile_data.py            # profiles raw datasets
-  clean_data.py              # cleans raw datasets
-  merge_data.py              # merges cleaned datasets on UNITID
-  analyze_data.py            # generates visualizations
-  run_all.py                 # re-executes full pipeline
+  acquire_data.py                        # fetches raw data and generates SHA-256 checksums
+  profile_data.py                        # profiles raw datasets
+  clean_data.py                          # cleans raw datasets
+  merge_data.py                          # merges cleaned datasets on UNITID
+  analyze_data.py                        # generates visualizations
+  run_all.py                             # re-executes full pipeline
 results/
   question1_tuition_vs_earnings.png
   question2_locale_vs_earnings.png
@@ -33,17 +35,18 @@ results/
   question4_tuition_vs_debt.png
   question5_tuition_vs_graduation.png
   correlation_heatmap.png
-Snakefile                    # end-to-end workflow automation
-requirements.txt             # Python dependencies
-metadata.json                # DCAT project metadata
-DataDictionary               # column descriptions for all datasets
-DCAT                         # Machine Readable Descriptive metadata
-LICENSE                      # MIT license
-ProjectPlan.md               # Project plan
-StatusReport.md              # Status report
-README.md                    # project report
+Snakefile                                # end-to-end workflow automation
+requirements.txt                         # Python dependencies
+metadata.json                            # DCAT project metadata
+DataDictionary                           # column descriptions for all datasets
+DCAT                                     # Machine Readable Descriptive metadata
+LICENSE                                  # MIT license
+ProjectPlan.md                           # Project plan
+StatusReport.md                          # Status report
+README.md                                # project report
 ```
 Raw files are preserved in `data/raw/` and are never edited manually. All profiling, cleaning, merging, and analysis steps are performed by scripts in `scripts/`, and their outputs are written to the appropriate subdirectory under `data/` or `results/`. This separation between raw and processed data makes it easy to track provenance and rerun the workflow from scratch.
+
 ## Data Profile
 [max 2000 words] 
 For each dataset used, describe its structure, content, and characteristics. Specify the location of the dataset files in your project repository. Discuss any ethical or legal constraints associated with the data and explain how the datasets relate to your questions
@@ -74,29 +77,29 @@ The script fetches College Scorecard data via the API with pagination and downlo
 ## Data Quality
 [500-1000 words] 
 Summary of the quality assessment.
+
 ## Data Cleaning
 [max 1000 words] 
 Summarize the data cleaning operations you performed and explain how each operation addressed specific data quality issues in your datasets.
-
  
 Data was profiled using `scripts/profile_data.py` before any cleaning was performed. The profiling report saved to `data/profiling/data_profile_report.json` identified the following issues, which were addressed in `scripts/clean_data.py`.
  
 ### College Scorecard
  
-Institutions with a student enrollment of 0 were removed as these values are implausible — no active institution should have zero enrolled students. 17 records were affected. Rows were only dropped if they were missing values across all key analysis columns simultaneously, rather than dropping any row with a single missing value. This preserved as much data as possible given that some columns such as completion rate are frequently suppressed for privacy reasons.
+Institutions with a student enrollment of 0 were dropped as these values are implausible. An active institution should not have zero enrolled students. Yhere were 17 of these records. Rows were only dropped if they were missing values across all the relevant analysis columns simultaneously, rather than dropping any row with a single missing value. This preserved as much data as possible since some institutions don't want to disclose information like completion rate.
  
 ### IPEDS HD2024
  
-The `CONTROL` and `LOCALE` columns use `-3` as a sentinel value meaning "not applicable." These were recoded to `NaN` to prevent them from being treated as valid numeric values during analysis. Human-readable labels were added for both columns — `CONTROL_LABEL` maps the numeric codes to Public, Private nonprofit, or Private for-profit, and `LOCALE_LABEL` maps locale codes to descriptions such as City: Large or Rural: Remote. A simplified `locale_broad` column was derived from `LOCALE_LABEL` to group institutions into four broad categories: City, Suburb, Town, and Rural.
+The `CONTROL` and `LOCALE` columns use `-3` as a sentinel value that means "not applicable." These were turned into `NaN` to prevent them from being treated as valid numeric values during analysis. Human-readable labels were added for both columns. `CONTROL_LABEL` maps the numeric codes to Public, Private nonprofit, or Private for-profit, and `LOCALE_LABEL` maps locale codes to descriptions such as City: Large or Rural: Remote. A simplified `locale_broad` column was made using `LOCALE_LABEL` to group institutions into four broad categories: City, Suburb, Town, and Rural.
  
 ### Integration
  
-The two datasets share the IPEDS Unit ID (`UNITID`) as a common identifier. College Scorecard uses this field as `id`, which is renamed to `UNITID` during cleaning. The datasets are joined using an inner join in `scripts/merge_data.py`, retaining only institutions present in both sources.
+The two datasets share the IPEDS Unit ID (`UNITID`) as a common identifier. College Scorecard uses this field as `id`, which is renamed to `UNITID` during the data cleaning step. The datasets are joined using an inner join in `scripts/merge_data.py`, keeping only institutions present in both sources.
  
 ```
 SCORECARD                        IPEDS
 ---------                        -----
-UNITID (PK) ────────────────── UNITID (PK)
+UNITID (primary key) ────────────────── UNITID (primary key)
 school_name                      CONTROL
 tuition                          LOCALE
 earnings
@@ -111,33 +114,39 @@ student_size
 - Successfully matched: 4,839 (85.5% merge rate)
 - Records in Scorecard only: 0
 - Records in IPEDS only: 821
-The 821 unmatched IPEDS institutions had no corresponding Scorecard entry, likely because they are not covered by the Scorecard program (e.g., non-Title IV schools). Full match statistics are saved to `data/merged/merge_stats.json`.
+The 821 unmatched IPEDS institutions had no corresponding Scorecard entry, likely because they are not covered by the Scorecard program. Full match statistics are saved to `data/merged/merge_stats.json`.
 
 
 ## Findings
 [~500 words] 
 Description of any findings including numeric results and/or visualizations.
+
 Visualizations were generated using `scripts/analyze_data.py` and saved to `results/`. The following plots address each research question:
  
 | Research Question | Visualization |
 |---|---|
-| Do universities with higher tuition result in graduates with higher post-graduation earnings? | `q1_tuition_vs_earnings.png` |
-| Do graduates from urban universities earn more than those from rural universities? | `q2_locale_vs_earnings.png` |
-| Do larger universities produce higher-earning graduates? | `q3_size_vs_earnings.png` |
-| Do students at universities with higher tuition graduate with more student debt? | `q4_tuition_vs_debt.png` |
-| Do universities with higher tuition have higher graduation rates? | `q5_tuition_vs_graduation.png` |
+| Do universities with higher tuition result in graduates with higher post-graduation earnings? | `question1_tuition_vs_earnings.png` |
+| Do graduates from urban universities earn more than those from rural universities? | `question2_locale_vs_earnings.png` |
+| Do larger universities produce higher-earning graduates? | `question3_size_vs_earnings.png` |
+| Do students at universities with higher tuition graduate with more student debt? | `question4_tuition_vs_debt.png` |
+| Do universities with higher tuition have higher graduation rates? | `question5_tuition_vs_graduation.png` |
 
 Correlations across all variables is saved as `correlation_heatmap.png`.
 
 *alex fill in the actual analysis*
+
 ## Future Work
 [~500-1000 words] 
 Brief discussion of any lessons learned and potential future work.
+
 ## Challenges
 [~500 words] 
 Discuss the main challenges you encountered while working on the project.
+
+
 ## Reproducing
 Sequence of steps required for someone else to reproduce your results.
+
 ### System Requirements
 - macOS, Linux, or Windows
 - Python 3.8 or higher
@@ -190,7 +199,7 @@ python scripts/analyze_data.py
  
 ### Step 5: Verify Outputs
  
-After running the pipeline, confirm the following files exist:
+After running the pipeline, make sure the following files exist:
  
 ```
 data/profiling/data_profile_report.json
