@@ -12,7 +12,7 @@ data/
     scorecard_raw.csv        # raw College Scorecard data from API
     ipeds_hd2024.csv         # raw IPEDS HD2024 institutional characteristics
   profiling/
-    profile_report.json      # data quality profile of raw datasets
+    data_profile_report.json      # data quality profile of raw datasets
   cleaned/
     scorecard_cleaned.csv    # cleaned College Scorecard data
     ipeds_cleaned.csv        # cleaned IPEDS data
@@ -25,19 +25,22 @@ scripts/
   clean_data.py              # cleans raw datasets
   merge_data.py              # merges cleaned datasets on UNITID
   analyze_data.py            # generates visualizations
+  run_all.py                 # re-executes full pipeline
 results/
-  q1_tuition_vs_earnings.png
-  q2_locale_vs_earnings.png
-  q3_size_vs_earnings.png
-  q4_tuition_vs_debt.png
-  q5_tuition_vs_graduation.png
+  question1_tuition_vs_earnings.png
+  question2_locale_vs_earnings.png
+  question3_size_vs_earnings.png
+  question4_tuition_vs_debt.png
+  question5_tuition_vs_graduation.png
   correlation_heatmap.png
 Snakefile                    # end-to-end workflow automation
-run_all.py                   # script to re-execute full pipeline
 requirements.txt             # Python dependencies
 metadata.json                # DCAT project metadata
-data_dictionary.csv          # column descriptions for all datasets
+DataDictionary               # column descriptions for all datasets
+DCAT                         # Machine Readable Descriptive metadata
 LICENSE                      # MIT license
+ProjectPlan.md               # Project plan
+StatusReport.md              # Status report
 README.md                    # project report
 ```
 Raw files are preserved in data/raw/ and are never edited manually. All profiling, cleaning, merging, and analysis steps are performed by scripts in scripts/, and their outputs are written to the appropriate subdirectory under data/ or results/. This separation between raw and processed data makes it easy to track provenance and rerun the workflow from scratch.
