@@ -1,0 +1,22 @@
+{
+    "@type": "dcat:Dataset",
+    "accessLevel": "public",
+    "contactPoint": {
+        "@type": "vcard:Contact",
+        "vcard:fn": "Alex Cai",
+        "vcard:hasEmail": "mailto:[alexcai2@illinois.edu]"
+    },
+    "description": "An integrated dataset combining U.S. Department of Education College Scorecard and IPEDS HD2024 data to examine relationships between institutional characteristics (tuition, enrollment, locale) and student outcomes (post-graduation earnings, debt, graduation rates) across 4,839 U.S. institutions.",
+    "keyword": [
+        "higher education",
+        "tuition",
+        "student earnings",
+        "student debt",
+        "graduation rate",
+        "College Scorecard",
+        "IPEDS"
+    ],
+    "modified": "2025-05-01",
+    "title": "College Characteristics and Graduate Earnings",
+    "license": "http://opensource.org/licenses/MIT"
+}
