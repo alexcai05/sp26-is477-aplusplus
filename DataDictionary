@@ -1,0 +1,55 @@
+Data Dictionary
+College Characteristics and Graduate Earnings
+
+Dataset 1. COLLEGE SCORECARD (data/raw/scorecard_raw.csv)
+--------------------------------------------------
+Source: U.S. Department of Education College Scorecard API
+URL: https://api.data.gov/ed/collegescorecard/v1/schools
+Rows: 6,322 | Columns: 8
+
+Column                                          Type      Description
+------                                          ----      -----------
+id                                              integer   IPEDS Unit ID. Unique identifier for each institution. Used as join key with IPEDS.
+school.name                                     string    Name of the institution.
+latest.cost.tuition.in_state                    float     In-state tuition and fees (USD). Missing for some institutions.
+latest.cost.tuition.out_of_state                float     Out-of-state tuition and fees (USD). Missing for some institutions.
+latest.earnings.10_yrs_after_entry.median       float     Median earnings of students 10 years after entry (USD). Missing where suppressed for privacy.
+latest.aid.median_debt.completers.overall       float     Median cumulative loan debt at graduation for completers (USD). Missing for some institutions.
+latest.completion.rate_suppressed.four_year     float     Four-year graduation rate (0.0 to 1.0). Suppressed for small or unreliable counts.
+latest.student.size                             float     Total undergraduate enrollment. Stored as float due to missing values.
+
+
+Dataset 2. IPEDS HD2024 (data/raw/ipeds_hd2024.csv)
+--------------------------------------------
+Source: National Center for Education Statistics (NCES) IPEDS
+URL: https://nces.ed.gov/ipeds/datacenter/data/HD2024.zip
+Rows: 6,072 | Columns: 4
+
+Column      Type      Description
+------      ----      -----------
+UNITID      integer   IPEDS Unit ID. Unique identifier for each institution. Used as join key with College Scorecard.
+INSTNM      string    Name of the institution.
+CONTROL     integer   Institutional control type. Values: 1 = Public, 2 = Private nonprofit, 3 = Private for-profit, -3 = Not applicable (recoded to NaN during cleaning).
+LOCALE      integer   Locale classification code. First digit indicates urbanicity: 1x = City, 2x = Suburb, 3x = Town, 4x = Rural. Second digit indicates size: x1 = Large, x2 = Midsize, x3 = Small/Remote. -3 = Not applicable (recoded to NaN during cleaning).
+
+
+3. MERGED DATASET (data/merged/merged_cleaned.csv)
+---------------------------------------------------
+Source: Inner join of cleaned College Scorecard and IPEDS datasets on UNITID.
+Rows: 4,839 | Columns: 13
+
+Column                                          Type      Description
+------                                          ----      -----------
+UNITID                                          integer   IPEDS Unit ID. Primary key. Shared identifier used to join both datasets.
+school.name                                     string    Name of the institution (from College Scorecard).
+latest.cost.tuition.in_state                    float     In-state tuition and fees (USD).
+latest.cost.tuition.out_of_state                float     Out-of-state tuition and fees (USD).
+latest.earnings.10_yrs_after_entry.median       float     Median earnings of students 10 years after entry (USD).
+latest.aid.median_debt.completers.overall       float     Median cumulative loan debt at graduation for completers (USD).
+latest.completion.rate_suppressed.four_year     float     Four-year graduation rate (0.0 to 1.0).
+latest.student.size                             float     Total undergraduate enrollment.
+CONTROL                                         float     Institutional control type code (see IPEDS above). -3 recoded to NaN.
+LOCALE                                          float     Locale classification code (see IPEDS above). -3 recoded to NaN.
+CONTROL_LABEL                                   string    Human-readable institutional control. Values: Public, Private nonprofit, Private for-profit.
+LOCALE_LABEL                                    string    Human-readable locale. Values: City: Large/Midsize/Small, Suburb: Large/Midsize/Small, Town: Fringe/Distant/Remote, Rural: Fringe/Distant/Remote.
+locale_broad                                    string    Simplified locale category derived from LOCALE_LABEL. Values: City, Suburb, Town, Rural.
