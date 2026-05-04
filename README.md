@@ -99,7 +99,7 @@ The two datasets share the IPEDS Unit ID (`UNITID`) as a common identifier. Coll
 ```
 SCORECARD                        IPEDS
 ---------                        -----
-UNITID (primary key) ────────────────── UNITID (primary key)
+UNITID (primary key) ─────────── UNITID (primary key)
 school_name                      CONTROL
 tuition                          LOCALE
 earnings
@@ -256,3 +256,35 @@ snakemake run_all --cores 1 --config api_key=YOUR_API_KEY
 ```
 ## References
 Formatted citations for any papers, datasets, or software used in your project.
+### Datasets
+U.S. Department of Education. (2024). College Scorecard Data. Retrieved from https://collegescorecard.ed.gov/data/documentation/
+
+National Center for Education Statistics. (2024). IPEDS HD2024: Institutional Characteristics. Integrated Postsecondary Education Data System. Retrieved from https://nces.ed.gov/ipeds/datacenter/data/HD2024.zip
+
+### Software
+
+
+
+## Licenses
+### Code License
+This project's code is released under the MIT License. See `LICENSE` in the repository root.
+
+### Data License
+**College Scorecard Dataset**
+- Source: U.S. Department of Education
+- License: Public Domain
+- Terms: Freely available for use and redistribution
+- Required citation: U.S. Department of Education. *College Scorecard Data, 2024.* https://collegescorecard.ed.gov/data/
+
+**IPEDS Dataset**
+- Source: National Center for Education Statistics
+- License: Public Domain
+- Terms: Freely available for use and redistribution
+- Required citation: National Center for Education Statistics. *Integrated Postsecondary Education Data System (IPEDS), 2024.* https://nces.ed.gov/ipeds/use-the-data
+
+### Third-Party Software
+- **pandas**: BSD 3-Clause License
+- **numpy**: BSD License
+- **matplotlib**: PSF License
+- **seaborn**: BSD 3-Clause License
+- **jupyter**: BSD License
