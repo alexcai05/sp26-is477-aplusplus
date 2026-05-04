@@ -86,7 +86,7 @@ Data was profiled using `scripts/profile_data.py` before any cleaning was perfor
  
 ### College Scorecard
  
-Institutions with a student enrollment of 0 were dropped as these values are implausible. An active institution should not have zero enrolled students. Yhere were 17 of these records. Rows were only dropped if they were missing values across all the relevant analysis columns simultaneously, rather than dropping any row with a single missing value. This preserved as much data as possible since some institutions don't want to disclose information like completion rate.
+Institutions with a student enrollment of 0 were dropped as these values are implausible. An active institution should not have zero enrolled students. There were 17 of these records. Rows were only dropped if they were missing values across all the relevant analysis columns simultaneously, rather than dropping any row with a single missing value. This preserved as much data as possible since some institutions don't want to disclose information like completion rate.
  
 ### IPEDS HD2024
  
@@ -142,7 +142,11 @@ Brief discussion of any lessons learned and potential future work.
 ## Challenges
 [~500 words] 
 Discuss the main challenges you encountered while working on the project.
+Challenges encountered while working on the project related to storage, missing data, and sentinel values. When the data was initially acquired, the file sizes for both the College Scorecard and IPEDS datasets were very large. Together, they took up 1.55 GB. This exceeded the Github file size limit of 50 MB and also resulted in low laptop storage warnings. After examining the CSV files, the root of the problem was that the datasets had an excessive number of columns, many of which were not required even need to answer our research questions. To address the storage challenge, it was decided that the best course of action would be to revise the data acquisition script so that it extracts only the columns relevant to the project from the College Scorecard and IPEDS datasets. The fix made a substantial difference. It solved the problem as the file sizes went from a combined 1.55 GB down to 698 KB.
 
+Another challenge was debating what to do with the missing data. When the College Scorecard data was first retrieved, it was not anticipated that a majority of the records would have missing information. Options like imputation were considered, in which every piece of data missing either the tuition cost or postgraduate earnings (or both) would be imputed with the mean or median of the original data. However, it was decided that this approach might be inaccurate and impact the legitimacy of the conclusions. Thus, dropping missing data was the best course of action since sample size after cleaning was large enough to still be representative. Rather than blindly dropping any row with missing data since that would remove a lot of valuable data, only rows with missing values across all the relevant analysis columns were eliminated. The potential risks that might come along with a slightly smaller sample size were acknowledged, but the approach taken preserved as much of the orignal data as possible.
+
+Another challenge was the presence of sentinal values in the IPEDS dataset. 
 
 ## Reproducing
 Sequence of steps required for someone else to reproduce your results.
