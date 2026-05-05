@@ -146,7 +146,7 @@ Challenges encountered while working on the project related to storage, missing 
 
 Another challenge was debating what to do with the missing data. When the College Scorecard data was first retrieved, it was not anticipated that a majority of the records would have missing information. Options like imputation were considered, in which every piece of data missing either the tuition cost or postgraduate earnings (or both) would be imputed with the mean or median of the original data. However, it was decided that this approach might be inaccurate and impact the legitimacy of the conclusions. Thus, dropping missing data was the best course of action since sample size after cleaning was large enough to still be representative. Rather than blindly dropping any row with missing data since that would remove a lot of valuable data, only rows with missing values across all the relevant analysis columns were eliminated. The potential risks that might come along with a slightly smaller sample size were acknowledged, but the approach taken preserved as much of the orignal data as possible.
 
-Another challenge was the presence of sentinal values in the IPEDS dataset. 
+Another challenge was that the IPEDS dataset had sentinal values and used numbers to represent categorical variables. For example, "-3" was used in place of NaN and This made the data difficult to interpret since we had to keep referencing the data dictionary to see what the values mean. 
 
 ## Reproducing
 Sequence of steps required for someone else to reproduce your results.
