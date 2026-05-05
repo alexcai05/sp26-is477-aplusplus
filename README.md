@@ -142,14 +142,13 @@ Brief discussion of any lessons learned and potential future work.
 ## Challenges
 [~500 words] 
 Discuss the main challenges you encountered while working on the project.
-Challenges encountered while working on the project related to storage, missing data, and sentinel values. When the data was initially acquired, the file sizes for both the College Scorecard and IPEDS datasets were very large. Together, they took up 1.55 GB. This exceeded the Github file size limit of 50 MB and also resulted in low laptop storage warnings. After examining the CSV files, the root of the problem was that the datasets had an excessive number of columns, many of which were not required even need to answer our research questions. To address the storage challenge, it was decided that the best course of action would be to revise the data acquisition script so that it extracts only the columns relevant to the project from the College Scorecard and IPEDS datasets. The fix made a substantial difference. It solved the problem as the file sizes went from a combined 1.55 GB down to 698 KB.
+Challenges encountered while working on the project related to storage, missing data, and sentinel values. When the data was initially acquired, the file sizes for both the College Scorecard and IPEDS datasets were very large. Together, they took up around 1.55 GB. This exceeded the Github file size limit of 50 MB and also resulted in low laptop storage warnings. After examining the CSV files, the root of the problem was that the datasets had an excessive number of columns, many of which were not required even need to answer the research questions. To address the storage challenge, it was decided that the best course of action would be to revise the data acquisition script so that it extracts only the columns relevant to the project from the College Scorecard and IPEDS datasets. The fix made a substantial difference. It solved the problem as the file sizes went from a combined 1.55 GB down to 698 KB.
 
 Another challenge was debating what to do with the missing data. When the College Scorecard data was first retrieved, it was not anticipated that a majority of the records would have missing information. Options like imputation were considered, in which every piece of data missing either the tuition cost or postgraduate earnings (or both) would be imputed with the mean or median of the original data. However, it was decided that this approach might be inaccurate and impact the legitimacy of the conclusions. Thus, dropping missing data was the best course of action since sample size after cleaning was large enough to still be representative. Rather than blindly dropping any row with missing data since that would remove a lot of valuable data, only rows with missing values across all the relevant analysis columns were eliminated. The potential risks that might come along with a slightly smaller sample size were acknowledged, but the approach taken preserved as much of the orignal data as possible.
 
-Another challenge was that the IPEDS dataset had sentinal values and used numbers to represent categorical variables. For example, "-3" was used in place of NaN and This made the data difficult to interpret since we had to keep referencing the data dictionary to see what the values mean. 
+Another challenge was that the IPEDS dataset had sentinal values and categorical variables were represented by numbers. For example, "-3" was used in place of NaN and "2" meant private nonprofit. This made the data very difficult to interpret at first since it required referencing the data dictionary constantly to see what the values mean. To address this challenge, all the "-3" were transformed into NaN during the data cleaning process so that the negative number would not affect or accidentally skew the data analysis. Additionally, the other numeric values in the IPEDS dataset were turned into human-readable labels in the `CONTROL_LABEL` and `LOCALE_LABEL` columns.
 
 ## Reproducing
-Sequence of steps required for someone else to reproduce your results.
 
 ### System Requirements
 - macOS, Linux, or Windows
@@ -263,6 +262,15 @@ National Center for Education Statistics. (2024). IPEDS HD2024: Institutional Ch
 
 ### Software
 
+McKinney, W. (2010). Data Structures for Statistical Computing in Python. *Proceedings of the 9th Python in Science Conference*, 56-61. https://doi.org/10.25080/Majora-92bf1922-00a
+
+Hunter, J. D. (2007). Matplotlib: A 2D graphics environment. *Computing in Science & Engineering*, 9(3), 90–95. https://doi.org/10.1109/MCSE.2007.55
+
+Waskom, M. (2021). seaborn: Statistical data visualization. *Journal of Open Source Software*, 6(60), 3021. https://doi.org/10.21105/joss.03021
+
+Python Software Foundation. (2024). *Python* (v3.x). https://www.python.org
+
+Köster, J., & Rahmann, S. (2012). Snakemake — a scalable bioinformatics workflow engine. *Bioinformatics*, 28(19), 2520–2522. https://doi.org/10.1093/bioinformatics/bts480
 
 
 ## Licenses
@@ -281,10 +289,3 @@ This project's code is released under the MIT License. See `LICENSE` in the repo
 - License: Public Domain
 - Terms: Freely available for use and redistribution
 - Required citation: National Center for Education Statistics. *Integrated Postsecondary Education Data System (IPEDS), 2024.* https://nces.ed.gov/ipeds/use-the-data
-
-### Third-Party Software
-- **pandas**: BSD 3-Clause License
-- **numpy**: BSD License
-- **matplotlib**: PSF License
-- **seaborn**: BSD 3-Clause License
-- **jupyter**: BSD License
