@@ -38,7 +38,6 @@ scripts/
   merge_data.py                          # merges cleaned datasets on UNITID
   analyze_data.py                        # generates visualizations
   run_all.py                             # re-executes full pipeline
-metadata.json                            # DCAT project metadata
 DCAT                                     # Machine Readable Descriptive metadata
 DataDictionary                           # column descriptions for all datasets
 LICENSE                                  # MIT license
