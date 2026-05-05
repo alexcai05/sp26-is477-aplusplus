@@ -45,7 +45,7 @@ README.md                                # project report
 Snakefile                                # end-to-end workflow automation
 requirements.txt                         # Python dependencies
 ```
-Raw files are preserved in `data/raw/` and are never edited manually. All profiling, cleaning, merging, and analysis steps are performed by scripts in `scripts/`, and their outputs are written to the appropriate subdirectory under `data/` or `results/`. This separation between raw and processed data makes it easy to track provenance and rerun the workflow from scratch.
+Raw files are preserved in `data/raw/` and are never edited manually. All profiling, cleaning, merging, and analysis steps are performed by scripts in `scripts/`, and their outputs are written to the appropriate subdirectory under `data/` or `findings/`. This separation between raw and processed data makes it easy to track provenance and rerun the workflow from scratch.
 
 ## Data Profile
 [max 2000 words] 
@@ -121,7 +121,7 @@ The 821 unmatched IPEDS institutions had no corresponding Scorecard entry, likel
 [~500 words] 
 Description of any findings including numeric results and/or visualizations.
 
-Visualizations were generated using `scripts/analyze_data.py` and saved to `results/`. The following plots address each research question:
+Visualizations were generated using `scripts/analyze_data.py` and saved to `findings/`. The following plots address each research question:
  
 | Research Question | Visualization |
 |---|---|
@@ -211,12 +211,12 @@ data/cleaned/scorecard_cleaned.csv
 data/cleaned/ipeds_cleaned.csv
 data/merged/merged_cleaned.csv
 data/merged/merge_stats.json
-results/question1_tuition_vs_earnings.png
-results/question2_locale_vs_earnings.png
-results/question3_size_vs_earnings.png
-results/question4_tuition_vs_debt.png
-results/question5_tuition_vs_graduation.png
-results/correlation_heatmap.png
+findings/question1_tuition_vs_earnings.png
+findings/question2_locale_vs_earnings.png
+findings/question3_size_vs_earnings.png
+findings/question4_tuition_vs_debt.png
+findings/question5_tuition_vs_graduation.png
+findings/correlation_heatmap.png
 ```
  
  
@@ -248,7 +248,7 @@ All processing and analysis steps are implemented as Python scripts in `scripts/
    ```
    python scripts/analyze_data.py
    ```
-   Input: `data/merged/merged_cleaned.csv` → Output: `results/question1_tuition_vs_earnings.png`, `results/question2_locale_vs_earnings.png`, `results/question3_size_vs_earnings.png`, `results/question4_tuition_vs_debt.png`, `results/question5_tuition_vs_graduation.png`, `results/correlation_heatmap.png`
+   Input: `data/merged/merged_cleaned.csv` → Output: `findings/question1_tuition_vs_earnings.png`, `findings/question2_locale_vs_earnings.png`, `findings/question3_size_vs_earnings.png`, `findings/question4_tuition_vs_debt.png`, `findings/question5_tuition_vs_graduation.png`, `findings/correlation_heatmap.png`
 For convenience, the full pipeline can also be run with a single command:
  
 ```
