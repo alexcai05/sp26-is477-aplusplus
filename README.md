@@ -39,10 +39,8 @@ scripts/
   analyze_data.py                        # generates visualizations
   run_all.py                             # re-executes full pipeline
 metadata.json                            # DCAT project metadata
-DataDictionary                           # column descriptions for all datasets
 DCAT                                     # Machine Readable Descriptive metadata
-ProjectPlan.md                           # Project plan
-StatusReport.md                          # Status report
+DataDictionary                           # column descriptions for all datasets
 LICENSE                                  # MIT license
 README.md                                # project report
 Snakefile                                # end-to-end workflow automation
