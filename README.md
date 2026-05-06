@@ -93,7 +93,19 @@ The script fetches College Scorecard data via the API with pagination and downlo
 The first dataset we will go over is the U.S. Department of Education's College Scorecard. This dataset was collected, as suggested by the name, by the U.S. Department of Education, a reliable source as it is a federal agency designed “to promote student achievement, ensure equal access to education, and administer federal financial aid.” It funnels information from a variety of different sources, such as the IRS and Federal Student Aid sources, both of which are federal organizations indicating their reliability. The College Scorecard is the output of one of the department’s primary purposes: to collect data on schools. The Scorecard itself contains data about colleges in the United States from the school years 1996-1997 to 2022-2023 and was last updated March 23rd, 2026.
 
 In terms of ethical and legal constraints, the dataset is created by a government agency, meaning that it defaults to public domain in accordance with the OPEN Government Data Act. This act requires agencies to make their data publicly available without any restrictions, meaning any works created by US Government employees or agencies within the scope of their employment are considered public and free to use, including the US Department of Education College Scorecard.
- 
+
+As to the structure of the dataset, when we acquire the data using our API as described above, it returns each result as a flat dictionary with dotted keys. In order to make this more user-friendly, we’ve opted to convert it to a CSV file. You can see this process in our script `acquire_data.py`, after which we save the dataset to the data folder. You can view the raw data in the subfolder `raw` with its file name being `scorecard_raw.csv`.
+
+When acquiring the data, something we also did was filter only the most relevant fields in regards to our research questions. This was important as the College Scorecard is a very large dataset and we wanted to save on space. The list below includes the fields we chose to include:
+- UNITID: unique identification number of the institution (`id`)
+- INSTNM: institution name (`school.name`)
+- TUITIONFEE_IN: in-state tuition and fees (`latest.cost.tuition.in_state`)
+- TUITIONFEE_OUT: out-of-state tuition and fees (`latest.cost.tuition.out_of_state`)
+- MD_EARN_WNE_P10: median earnings of students working and not enrolled 10 years after entry (`latest.earnings.10_yrs_after_entry.median`)
+- GRAD_DEBT_MDN: median debt for students who have completed (`latest.aid.median_debt.completers.overall`)
+- C150_4: graduation rate for first time, full-time students at four-year institutions (`latest.completion.rate_suppressed.four_year`)
+- UGDS: total undergraduate enrollment (`latest.student.size`)
+
 ### Dataset 2: IPEDS HD2024
  
 *alex fills in — source, coverage, format, variables, ethical/legal constraints*
