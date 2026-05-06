@@ -19,8 +19,12 @@ Beyond return on investment, we're also curious to look into many other features
 
 To understand each of these questions, we  acquired two datasets: the U.S. Department of Education's College Scorecard and the Integrated Postsecondary Education Data System (IPEDS), both of which contain data as recent as 2024 related to evaluating post graduate outcomes. To investigate, we first cleaned the datasets, handling any missing values and standardizing data formats for consistency. We also filtered the datasets, retaining a subset of attributes that are relevant. Then, we performed data integration and ultimately produced one comprehensive dataset, which we used to conduct exploratory data analysis and create statistical summaries and visualizations to help us answer our research questions. Throughout the research process, we maintained proper documentation and organization to meet IS 477 standards for transparent, ethical, and reproducible data curation.
 
-*insert findings*
-
+After conducting those processes, we were left with a few notable takeaways in terms of findings.
+- Universities with higher tuitions generally speaking had a higher median earnings 10 years after entry.
+- Locale doesn’t seem to matter too significantly when it comes to the median earnings post graduation.
+- There was no strong correlation between university size and median earnings.
+- No matter how expensive the tuition was, there was a general average amount that each university’s average debt was for their students, albeit surprisingly enough, those with cheaper tuition had more outliers of people with more debt.
+- Lastly, the higher the tuition, the more likely it was for people to graduate.
 
 ## Storage and Organization
 To support reproducibility and traceability, we adopt the following directory structure:
