@@ -219,6 +219,9 @@ Despite the volume of work we did for this project, there is still plenty of roo
 
 Beyond financial aid, there are so many other variables we could’ve potentially included. There are hundreds of fields across both datasets, all of which likely play a factor into someone’s post graduate success. Factors like studying abroad, whether or not a college was community college/state college, the existence of school sports for students who come to college for the extracurriculars rather than the education, etc. This is a very vast topic that we barely scratched the surface of in this study.
 
+As for other takeaways, we also learned a lot about working with real world data. Most notably, acquiring the data was great hands-on experience and the cleaning process was a conundrum we had to decide what to do with. The data having plenty of observations with missing numbers in certain important columns had us practice deciding what to do with that as we had many different approaches we could take. In addition, having to work with real world data made us cognizant of the ethics we discussed in class. We were fortunate enough that both our sources were government-backed, meaning we could use them freely, however it’s definitely something we’ll be keeping in mind for future projects to ensure we don’t violate any laws.
+
+Overall, this project was a great learning experience and beginning to the rabbit hole that is education and the cost of it in the United States!
 
 ## Challenges
 [~500 words] 
