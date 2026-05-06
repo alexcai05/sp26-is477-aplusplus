@@ -8,6 +8,8 @@ As college students, something that we’ve definitely noticed is the cost of ed
 
 This interests us in particular because of how common the college and university route is for students our age. In high school, you would be hard pressed to find a graduating senior not planning on continuing their education. However, with how obsolete some degrees are becoming for the purposes of finding a job, it begs the question of whether or not it is still worth it to go to college. Of course, beyond the financial return, there are other benefits to attending college like meeting new people, learning about something you’re passionate about, or helping do research to make the world a better place. However, as business students, something we’ve learned throughout our time here at the University of Illinois at Urbana Champaign is that it’s really important to make sure you’re getting your money’s worth. We’re curious to see if the investment we’re making will pay off in the end, whether or not we’ll ever make back the thousands of dollars we paid into this university.
 
+Beyond return on investment, we're also curious to look into many other features, such as whether or not region or size play a part into earnings or if higher tuition leads to higher debt or graduation rates. Below is a full list of our research questions we answered for this project.
+
 ### __Research Questions__
 - Do universities with higher tuition result in graduates with higher post-graduation earnings?
 - Do graduates from urban universities earn more than those from rural universities?
