@@ -4,7 +4,7 @@
 - **Alex Cai** (Github Username: alexcai05): Compared to the original plan, Alex instead analyzed and found each dataset, working on analyzing the results of the cleaned and combined data to determine the answer to the research questions. Alex performed much of the describing of the datasets and writing up the conclusions.
 
 ## Summary
-As college students, something that we’ve noticed is the cost of education. It is no question that as time goes on, college tuition increases exponentially alongside it. Since the start of the 21st century, sources report that the cost of attending university has increased anywhere from 60% - 180%. Obviously, this can’t *all* be attributed to inflation, so it’s clear that colleges have hiked their prices intentionally.
+As college students, something that we’ve noticed is the rising cost of education. It is no question that as time goes on, college tuition increases exponentially alongside it. Since the start of the 21st century, sources report that the cost of attending university has increased anywhere from 60% - 180%. Obviously, this can’t *all* be attributed to inflation, so it’s clear that colleges have hiked their prices intentionally.
 
 With how obsolete some degrees are becoming for the purposes of finding a job, it begs the question of whether or not it is still worth it to go to college. Of course, beyond the financial return, there are other benefits to attending college like meeting new people, learning about something you’re passionate about, or helping do research to make the world a better place. However, as business students, something we’ve learned throughout our time here at UIUC is that it’s really important to make sure you’re getting your money’s worth. We’re curious to see if statistically speaking, the investment many of our generation is making will pay off in the end... whether or not we’ll ever make back the thousands of dollars we paid into attending college.
 
@@ -333,7 +333,6 @@ For convenience, the full pipeline can also be run with a single command:
 snakemake run_all --cores 1 --config api_key=YOUR_API_KEY
 ```
 ## References
-Formatted citations for any papers, datasets, or software used in your project.
 ### Datasets
 U.S. Department of Education. (2024). College Scorecard Data. Retrieved from https://collegescorecard.ed.gov/data/documentation/
 
