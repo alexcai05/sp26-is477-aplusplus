@@ -175,9 +175,6 @@ The 821 unmatched IPEDS institutions had no corresponding Scorecard entry, likel
 
 
 ## Findings
-[~500 words] 
-Description of any findings including numeric results and/or visualizations.
-
 Visualizations were generated using `scripts/analyze_data.py` and saved to `findings/`. The following plots address each research question:
  
 | Research Question | Visualization |
@@ -190,7 +187,9 @@ Visualizations were generated using `scripts/analyze_data.py` and saved to `find
 
 Correlations across all variables is saved as `correlation_heatmap.png`.
 
-*alex fill in the actual analysis*
+Looking further into each correlation plot, we can begin to understand the trends of the data and potential answers to the 5 questions we set out to learn more about at the start of this project. 
+
+Starting off, in visualization #1, we see a pretty consistent trend upwards between in-state tuition and median earnings 10 years after entry. We can see in the correlation heatmap that earnings and tuition have a 0.52 positive correlation, meaning that as tuition increases, median earnings increase as well. This implies that yes, if you pay more for your tuition, you are more likely to earn more relative to your peers. That being said, there were certainly outliers on both sides; colleges that had low in-state tuition and high median earners and vice versa for colleges with high in-state tuition. A correlation of 0.52 is relatively high but certainly not enough to conclude causation by any means.
 
 ## Future Work
 [~500-1000 words] 
