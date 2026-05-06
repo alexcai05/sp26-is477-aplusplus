@@ -124,7 +124,7 @@ Unlike the College Scorecard which focuses more on student outcome and financial
 We will evaluate the College Scorecard and IPEDS datasets based on the data quality dimensions: accuracy, completeness, consistency and timeliness.
 
 ### Accuracy
-_insert text later_
+Starting off with accuracy, the College Scorecard dataset is mostly good from what we can gather looking at the Scorecard by itself, but in terms of the IPEDS dataset, there’s a few fields that leave us with questions. The CONTROL and LOCALE fields in the IPEDS dataset are populated with numbers instead of words. Rather than numbers, these represent certain common answers, like 1 in the control column meaning “public” as compared to private or private-nonprofit, indicating the type of institution the university it is. Although this works, this isn’t intuitive and viewer friendly, as without knowing the pre-determined coding, it would be hard to decipher what each number means. It may also be misinterpreted as a numeric value rather than a code designated to mean something else.
 
 ### Timeliness
 _insert text later_
