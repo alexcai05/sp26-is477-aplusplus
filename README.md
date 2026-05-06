@@ -189,7 +189,18 @@ Correlations across all variables is saved as `correlation_heatmap.png`.
 
 Looking further into each correlation plot, we can begin to understand the trends of the data and potential answers to the 5 questions we set out to learn more about at the start of this project. 
 
+### Tuition & Post Graduate Earnings
 Starting off, in visualization #1, we see a pretty consistent trend upwards between in-state tuition and median earnings 10 years after entry. We can see in the correlation heatmap that earnings and tuition have a 0.52 positive correlation, meaning that as tuition increases, median earnings increase as well. This implies that yes, if you pay more for your tuition, you are more likely to earn more relative to your peers. That being said, there were certainly outliers on both sides; colleges that had low in-state tuition and high median earners and vice versa for colleges with high in-state tuition. A correlation of 0.52 is relatively high but certainly not enough to conclude causation by any means.
+
+### Urban & Rural Earnings
+Next, in visualization #2, we see the box and whisker plots comparing earnings across the different areas a university could be, that being city/suburb/town/rural. Interestingly enough, the median is about the same for each area, although the range and number of larger outliers increases as we go from rural to more densely populated areas. This makes sense, as the denser the area, the more people go to a university. The more people who go to the university, the more likely there are to be outliers and skewed medians. Overall, there isn’t a big difference in the summary statistics, but definitely a higher chance for outliers.
+
+### Enrollment Size & Earnings
+
+### Tuition & Debt
+
+### Tuition & Graduation Rates
+
 
 ## Future Work
 [~500-1000 words] 
