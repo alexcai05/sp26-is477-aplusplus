@@ -196,6 +196,7 @@ Starting off, in visualization #1, we see a pretty consistent trend upwards betw
 Next, in visualization #2, we see the box and whisker plots comparing earnings across the different areas a university could be, that being city/suburb/town/rural. Interestingly enough, the median is about the same for each area, although the range and number of larger outliers increases as we go from rural to more densely populated areas. This makes sense, as the denser the area, the more people go to a university. The more people who go to the university, the more likely there are to be outliers and skewed medians. Overall, there isn’t a big difference in the summary statistics, but definitely a higher chance for outliers.
 
 ### Enrollment Size & Earnings
+In visualization #3, we compare the student enrollment size to median earnings in a scatterplot. This represents a relatively normal bell curve just vertically, suggesting that there is not much correlation between the enrollment amount and median earnings.
 
 ### Tuition & Debt
 
