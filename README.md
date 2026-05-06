@@ -89,6 +89,10 @@ The script fetches College Scorecard data via the API with pagination and downlo
 ### Dataset 1: College Scorecard
  
 *alex fills in — source, coverage, format, variables, ethical/legal constraints*
+
+The first dataset we will go over is the U.S. Department of Education's College Scorecard. This dataset was collected, as suggested by the name, by the U.S. Department of Education, a reliable source as it is a federal agency designed “to promote student achievement, ensure equal access to education, and administer federal financial aid.” It funnels information from a variety of different sources, such as the IRS and Federal Student Aid sources, both of which are federal organizations indicating their reliability. The College Scorecard is the output of one of the department’s primary purposes: to collect data on schools. The Scorecard itself contains data about colleges in the United States from the school years 1996-1997 to 2022-2023 and was last updated March 23rd, 2026.
+
+In terms of ethical and legal constraints, the dataset is created by a government agency, meaning that it defaults to public domain in accordance with the OPEN Government Data Act. This act requires agencies to make their data publicly available without any restrictions, meaning any works created by US Government employees or agencies within the scope of their employment are considered public and free to use, including the US Department of Education College Scorecard.
  
 ### Dataset 2: IPEDS HD2024
  
