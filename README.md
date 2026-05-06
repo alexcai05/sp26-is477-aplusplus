@@ -334,7 +334,7 @@ snakemake run_all --cores 1 --config api_key=YOUR_API_KEY
 ```
 ## References
 ### Datasets
-U.S. Department of Education. (2024). College Scorecard Data. Retrieved from https://collegescorecard.ed.gov/data/documentation/
+U.S. Department of Education. (2024). College Scorecard Data. Retrieved from https://collegescorecard.ed.gov/data/
 
 National Center for Education Statistics. (2024). IPEDS HD2024: Institutional Characteristics. Integrated Postsecondary Education Data System. Retrieved from https://nces.ed.gov/ipeds/datacenter/data/HD2024.zip
 
