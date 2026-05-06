@@ -205,7 +205,12 @@ In visualization #4, we compare the cost of in-state tuition at the university t
 Lastly, in visualization #5, we compare tuition cost to graduation rate. In this graph, we see a very notable trend. When in state tuition increases, the percentage of students who complete their degree increases too. This makes sense, as when you pay more for something, people are less likely to back out even if it would’ve been the right decision due to the sunk cost fallacy of already having paid lots to get to where they are.
 
 ### Conclusions
-_insert work here_
+In conclusion, to answer the questions…
+- Question #1: Yes, there is a correlation between paying higher tuition and receiving a higher salary, but it is not enough to conclude.
+- Question #2: No, on average graduates from urban universities earn the same as those from rural universities, but thanks to urban universities having more people with their dense population, they are more likely to produce outliers.
+- Question #3: No, there is not much correlation at all between the enrollment size of the university and their post-grad earnings.
+- Question #4: No, most students graduate with a median of $25,000 in debt no matter the amount you paid for tuition.
+- Question #5: Yes, more expensive universities often have higher graduation rates than more affordable colleges.
 
 ## Future Work
 [~500-1000 words] 
