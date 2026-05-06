@@ -1,6 +1,7 @@
 # College Characteristics and Graduate Earnings
 ## Contributors
-Bulleted list of contributors (with optional ORCIDs).
+- **Vicky Wu** (Github Username: vickyywu): Compared to the original plan, Vicky took initiative due to her interest in doing a majority of the data acquisition and cleaning necessary to conduct the project. Vicky performed much of the integration, visualization design and preprocessing.
+- **Alex Cai** (Github Username: alexcai05): Compared to the original plan, Alex instead analyzed and found each dataset, working on analyzing the results of the cleaned and combined data to determine the answer to the research questions.
 
 ## Summary
 [500-600 words]
