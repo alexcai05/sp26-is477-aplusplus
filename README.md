@@ -108,7 +108,9 @@ As you can see, the content provided by this dataset is very integral towards an
 
 ### Dataset 2: IPEDS HD2024
  
-*alex fills in — source, coverage, format, variables, ethical/legal constraints*
+Speaking of IPEDS, the IPEDS dataframe is the next dataset we are using in this project. For those uninclined, IPEDS stands for Integrated Postsecondary Education Data System which is a system of interrelated surveys conducted annually by the National Center for Education Statistics (NCES). Using the Higher Education Act of 1965, IPEDS collects information on every college that participates in the US federal student aid programs. The IPEDS data contains data as far back as 1986 until the present, however not all data are available for all years.
+
+In terms of ethical and legal constraints, the National Center for Education Statistics likewise is a government institution. This means that in accordance with the OPEN Government Data Act, the IPEDS data is considered part of the public domain and can be used freely. Specifically speaking, IPEDS is public domain under 17 U.S. Code § 105, just like the college scorecard.
  
 ## Data Quality
 [500-1000 words] 
