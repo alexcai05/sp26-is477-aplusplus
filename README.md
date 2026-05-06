@@ -199,6 +199,7 @@ Next, in visualization #2, we see the box and whisker plots comparing earnings a
 In visualization #3, we compare the student enrollment size to median earnings in a scatterplot. This represents a relatively normal bell curve just vertically, suggesting that there is not much correlation between the enrollment amount and median earnings.
 
 ### Tuition & Debt
+In visualization #4, we compare the cost of in-state tuition at the university to the median student debt. In this scatterplot, we see somewhat of a logarithmic curve, increasing exponentially at the lower end of in-state tuition until it plateaus at approximately $25,000 in debt. It’s worth noting that there is a trend of outliers, with lower in-state tuition having more high outliers in debt and higher in-state tuition having more lower outliers of debt. This is rather interesting, since you would expect students who go to a school with higher tuition to have more debt on average than one who had to pay less. However, this can be explained by the amount of potential support each student had. Those who went to more expensive universities may have had their parents supporting them, while those who went to more affordable options may be on their own paying for their education.
 
 ### Tuition & Graduation Rates
 
