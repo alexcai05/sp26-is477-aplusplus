@@ -4,8 +4,19 @@
 - **Alex Cai** (Github Username: alexcai05): Compared to the original plan, Alex instead analyzed and found each dataset, working on analyzing the results of the cleaned and combined data to determine the answer to the research questions.
 
 ## Summary
-[500-600 words]
-Description of your project, motivation, research question(s), and any findings.
+As college students, something that we’ve definitely noticed is the cost of education. It is no question that as time goes on, college tuition increases exponentially alongside it. Since the start of the 21st century, sources report that the cost of attending university has increased anywhere from 60% - 180% depending on the institution type. Obviously, this can’t *all* be attributed to inflation, so it’s clear that colleges have hiked their prices intentionally.
+
+This interests us in particular because of how common the college and university route is for students our age. In high school, you would be hard pressed to find a graduating senior not planning on continuing their education. However, with how obsolete some degrees are becoming for the purposes of finding a job, it begs the question of whether or not it is still worth it to go to college. Of course, beyond the financial return, there are other benefits to attending college like meeting new people, learning about something you’re passionate about, or helping do research to make the world a better place. However, as business students, something we’ve learned throughout our time here at the University of Illinois at Urbana Champaign is that it’s really important to make sure you’re getting your money’s worth. We’re curious to see if the investment we’re making will pay off in the end, whether or not we’ll ever make back the thousands of dollars we paid into this university.
+
+### __Research Questions__
+- Do universities with higher tuition result in graduates with higher post-graduation earnings?
+- Do graduates from urban universities earn more than those from rural universities?
+- Do larger universities produce higher-earning graduates?
+- Do students at universities with higher tuition graduate with more student debt?
+- Do universities with higher tuition have higher graduation rates?
+
+To understand each of these questions, we have acquired two datasets: the U.S. Department of Education's College Scorecard and the Integrated Postsecondary Education Data System (IPEDS), both of which contain data as recent as 2024. We will go into detail about each dataset momentarily, but the important thing to know is that they contain vital information that we can use to evaluate post graduate outcomes. In order to conduct our investigation, we will first clean the datasets, handling any missing values and standardizing data formats for consistency. We will also filter the datasets, retaining a subset of attributes that are relevant. Then, we will perform data integration and ultimately produce one comprehensive dataset that we can conduct exploratory data analysis on. This project will also yield statistical summaries and visualizations that can help us determine whether certain college characteristics such as tuition and institution type lead to more favorable post-graduate outcomes. Throughout the research process, we will maintain proper documentation and organization to meet IS 477 standards for transparent, ethical, and reproducible data curation.
+
 
 ## Storage and Organization
 To support reproducibility and traceability, we adopt the following directory structure:
