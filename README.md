@@ -127,7 +127,7 @@ We will evaluate the College Scorecard and IPEDS datasets based on the data qual
 Starting off with accuracy, the College Scorecard dataset is mostly good from what we can gather looking at the Scorecard by itself, but in terms of the IPEDS dataset, there’s a few fields that leave us with questions. The CONTROL and LOCALE fields in the IPEDS dataset are populated with numbers instead of words. Rather than numbers, these represent certain common answers, like 1 in the control column meaning “public” as compared to private or private-nonprofit, indicating the type of institution the university it is. Although this works, this isn’t intuitive and viewer friendly, as without knowing the pre-determined coding, it would be hard to decipher what each number means. It may also be misinterpreted as a numeric value rather than a code designated to mean something else.
 
 ### Timeliness
-_insert text later_
+Next in terms of timeliness, both the College Scorecard and IPEDS are very up to date with IPEDS surveys being sent out every year and College Scorecard being updated as recently as 2 months ago. That being said, the ranges certainly vary, as IPEDS has been going on for much longer than College Scorecard has, having been recorded since 1986 compared to the College Scorecard’s 1996, marking a 10 year difference. This means that there could be some colleges or data points in the IPEDS dataset that maybe aren’t represented in the College Scorecard dataframe, say if a university existed as of 1986 but went out of business before College Scorecard began.
 
 ### Consistency
 _insert text later_
