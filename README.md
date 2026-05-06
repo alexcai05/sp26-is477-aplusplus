@@ -130,7 +130,7 @@ Starting off with accuracy, the College Scorecard dataset is mostly good from wh
 Next in terms of timeliness, both the College Scorecard and IPEDS are very up to date with IPEDS surveys being sent out every year and College Scorecard being updated as recently as 2 months ago. That being said, the ranges certainly vary, as IPEDS has been going on for much longer than College Scorecard has, having been recorded since 1986 compared to the College Scorecard’s 1996, marking a 10 year difference. This means that there could be some colleges or data points in the IPEDS dataset that maybe aren’t represented in the College Scorecard dataframe, say if a university existed as of 1986 but went out of business before College Scorecard began.
 
 ### Consistency
-_insert text later_
+In terms of consistency, the College Scorecard dataset had a few values that didn’t line up in terms of syntactic accuracy. The student enrollment column says how many students attend the university. Despite this, there were a few rows that listed 0 for student enrollment for the year, which doesn’t make much sense. Although there are possible explanations for this like if the college had to shut down whether temporarily or permanently, it remains true that evaluating a college with an annual student enrollment of 0 will not tell us anything about their post graduate outcomes like our questions are about.
 
 ### Completeness
 _insert text later_
