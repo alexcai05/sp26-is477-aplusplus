@@ -121,8 +121,19 @@ Likewise to the Scorecard, IPEDS is a large dataset and we already have many of 
 Unlike the College Scorecard which focuses more on student outcome and financial metrics, the IPEDS looks at the structure and characteristics of colleges. Non-financial factors like location and type of institution are just as important to analyze as financial factors like tuition as they can all play a role in students' experiences. You’ll notice that both datasets critically have the UNITID field, which we can use to merge the two datasets. The IPEDS complements the College Scorecard well as it brings in additional information about higher education institutions, filling in gaps and allowing us to tell the full story when the two datasets are merged together.
  
 ## Data Quality
-[500-1000 words] 
-Summary of the quality assessment.
+We will evaluate the College Scorecard and IPEDS datasets based on the data quality dimensions: accuracy, completeness, consistency and timeliness.
+
+### Accuracy
+_insert text later_
+
+### Timeliness
+_insert text later_
+
+### Consistency
+_insert text later_
+
+### Completeness
+_insert text later_
 
 ## Data Cleaning
 [max 1000 words] 
