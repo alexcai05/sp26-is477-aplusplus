@@ -71,7 +71,7 @@ Raw files are preserved in `data/raw/` and are never edited manually. All profil
 
 ### Acquisition
  
-Both datasets are publicly accessible online and can be reproduced by running `scripts/acquire_data.py`. A College Scorecard API key is required and can be obtained at https://api.data.gov/signup/.
+Both datasets are publicly accessible online and can be reproduced by running `scripts/acquire_data.py`. A College Scorecard API key is required and can be obtained at https://collegescorecard.ed.gov/data/api-documentation/.
  
 ```
 python scripts/acquire_data.py --api-key YOUR_API_KEY
@@ -256,7 +256,7 @@ pip install -r requirements.txt
  
 ### Step 3: Obtain a College Scorecard API Key
  
-Get a free API key at https://api.data.gov/signup/
+Get a free API key at https://collegescorecard.ed.gov/data/api-documentation/
  
 ### Step 4: Run the Pipeline
  
@@ -327,6 +327,8 @@ All processing and analysis steps are implemented as Python scripts in `scripts/
    python scripts/analyze_data.py
    ```
    Input: `data/merged/merged_cleaned.csv` → Output: `findings/question1_tuition_vs_earnings.png`, `findings/question2_locale_vs_earnings.png`, `findings/question3_size_vs_earnings.png`, `findings/question4_tuition_vs_debt.png`, `findings/question5_tuition_vs_graduation.png`, `findings/correlation_heatmap.png`
+
+
 For convenience, the full pipeline can also be run with a single command:
  
 ```
