@@ -68,8 +68,6 @@ requirements.txt                         # Python dependencies
 Raw files are preserved in `data/raw/` and are never edited manually. All profiling, cleaning, merging, and analysis steps are performed by scripts in `scripts/`, and their outputs are written to the appropriate subdirectory under `data/` or `findings/`. This separation between raw and processed data makes it easy to track provenance and rerun the workflow from scratch.
 
 ## Data Profile
-[max 2000 words] 
-For each dataset used, describe its structure, content, and characteristics. Specify the location of the dataset files in your project repository. Discuss any ethical or legal constraints associated with the data and explain how the datasets relate to your questions
 
 ### Acquisition
  
@@ -111,6 +109,16 @@ As you can see, the content provided by this dataset is very integral towards an
 Speaking of IPEDS, the IPEDS dataframe is the next dataset we are using in this project. For those uninclined, IPEDS stands for Integrated Postsecondary Education Data System which is a system of interrelated surveys conducted annually by the National Center for Education Statistics (NCES). Using the Higher Education Act of 1965, IPEDS collects information on every college that participates in the US federal student aid programs. The IPEDS data contains data as far back as 1986 until the present, however not all data are available for all years.
 
 In terms of ethical and legal constraints, the National Center for Education Statistics likewise is a government institution. This means that in accordance with the OPEN Government Data Act, the IPEDS data is considered part of the public domain and can be used freely. Specifically speaking, IPEDS is public domain under 17 U.S. Code § 105, just like the college scorecard.
+
+For the format of the dataset, IPEDS data is actually already formatted in CSV format, making it very convenient for us. All we have to do in our script `acquire_data.py` is download the zipfile containing the CSV from the IPEDS website and unzip it to get the desired CSV file. You can view said raw file in the `ipeds_hd2024.csv` file after going through the `data` and `raw` folders.
+
+Likewise to the Scorecard, IPEDS is a large dataset and we already have many of the fields we need to answer our questions from the scorecard. Thus, to reduce redundancies, we only opted to save a few fields, as noted below:
+- UNITID: unique identification number of the institution
+- INSTNM: institution name
+- CONTROL: institution type (public/private not-for-profit/private for-profit)
+- LOCALE: geographic status of a school on an urban continuum ranging from "large city" to "rural"
+
+Unlike the College Scorecard which focuses more on student outcome and financial metrics, the IPEDS looks at the structure and characteristics of colleges. Non-financial factors like location and type of institution are just as important to analyze as financial factors like tuition as they can all play a role in students' experiences. You’ll notice that both datasets critically have the UNITID field, which we can use to merge the two datasets. The IPEDS complements the College Scorecard well as it brings in additional information about higher education institutions, filling in gaps and allowing us to tell the full story when the two datasets are merged together.
  
 ## Data Quality
 [500-1000 words] 
