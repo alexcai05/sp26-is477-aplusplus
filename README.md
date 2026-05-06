@@ -1,7 +1,7 @@
 # College Characteristics and Graduate Earnings
 ## Contributors
 - **Vicky Wu** (Github Username: vickyywu): Compared to the original plan, Vicky took initiative due to her interest in doing a majority of the data acquisition and cleaning necessary to conduct the project. Vicky performed much of the integration, visualization design and preprocessing.
-- **Alex Cai** (Github Username: alexcai05): Compared to the original plan, Alex instead analyzed and found each dataset, working on analyzing the results of the cleaned and combined data to determine the answer to the research questions.
+- **Alex Cai** (Github Username: alexcai05): Compared to the original plan, Alex instead analyzed and found each dataset, working on analyzing the results of the cleaned and combined data to determine the answer to the research questions. Alex performed much of the describing of the datasets and writing up the conclusions.
 
 ## Summary
 As college students, something that we’ve noticed is the cost of education. It is no question that as time goes on, college tuition increases exponentially alongside it. Since the start of the 21st century, sources report that the cost of attending university has increased anywhere from 60% - 180%. Obviously, this can’t *all* be attributed to inflation, so it’s clear that colleges have hiked their prices intentionally.
