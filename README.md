@@ -202,7 +202,10 @@ In visualization #3, we compare the student enrollment size to median earnings i
 In visualization #4, we compare the cost of in-state tuition at the university to the median student debt. In this scatterplot, we see somewhat of a logarithmic curve, increasing exponentially at the lower end of in-state tuition until it plateaus at approximately $25,000 in debt. It’s worth noting that there is a trend of outliers, with lower in-state tuition having more high outliers in debt and higher in-state tuition having more lower outliers of debt. This is rather interesting, since you would expect students who go to a school with higher tuition to have more debt on average than one who had to pay less. However, this can be explained by the amount of potential support each student had. Those who went to more expensive universities may have had their parents supporting them, while those who went to more affordable options may be on their own paying for their education.
 
 ### Tuition & Graduation Rates
+Lastly, in visualization #5, we compare tuition cost to graduation rate. In this graph, we see a very notable trend. When in state tuition increases, the percentage of students who complete their degree increases too. This makes sense, as when you pay more for something, people are less likely to back out even if it would’ve been the right decision due to the sunk cost fallacy of already having paid lots to get to where they are.
 
+### Conclusions
+_insert work here_
 
 ## Future Work
 [~500-1000 words] 
