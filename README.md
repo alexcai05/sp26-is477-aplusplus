@@ -213,8 +213,8 @@ In conclusion, to answer the questions…
 - Question #5: Yes, more expensive universities often have higher graduation rates than more affordable colleges.
 
 ## Future Work
-[~500-1000 words] 
-Brief discussion of any lessons learned and potential future work.
+As we reflect on this project, it was very interesting and reassuring to learn that we are likely going to get the return on investment that we made for our college experiences. There were also plenty of unusual conclusions we drew, like the fact that students that pay higher tuition costs actually have less debt on average. This really signified to us the wealth disparity and how much having resources and financial support can impact your long-term success. While some people attended lower-cost universities, they still ended up with more debt than those who attended higher cost universities because those students likely had more support. Those students with more support then make higher earnings, while those who went to low cost universities are left paying off their student loans. Of course, all of this is conjecture and assumption based, which is a great transition into what more work could be done for this subject matter.
+
 
 ## Challenges
 [~500 words] 
